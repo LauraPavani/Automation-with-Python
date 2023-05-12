@@ -1,0 +1,17 @@
+from selenium import webdriver
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach",True)
+
+driver = webdriver.Chrome(options = options)
+driver.get('https://demo.seleniumeasy.com/basic-first-form-demo.html')
+messageField = driver.find_element("xpath",'//*[@id="user-message"]')
+messageField.send_keys('KCT! Que dificil')
+showMessageButton = driver.find_element("xpath",'//*[@id="get-input"]/button')
+showMessageButton.click()
+additionfield1 = driver.find_element("xpath", '//*[@id="value1"]')
+additionfield1.send_keys('23')
+additionfield2 = driver.find_element("xpath", '//*[@id="value2"]')
+additionfield2.send_keys('10')
+getTotalButton = driver.find_element("xpath",'//*[@id="gettotal"]/button')
+getTotalButton.click()
