@@ -1,0 +1,15 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+url = 'https://www.airroad.com.au/'
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach",True)
+
+driver = webdriver.Chrome(options = options)
+
+driver.maximize_window()
+driver.get(url)
+wait = WebDriverWait(driver, 20)
+loginButton = wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="header-row"]/div/div[2]/div/div[3]/div/div/div/div/div/div[3]/a/span[1]')))
+loginButton.click()
